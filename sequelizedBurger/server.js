@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var PORT = process.env.PORT || 2000;
+var PORT = process.env.PORT || 3000;
 
 var db = require("./models");
 var app = express();
@@ -9,9 +9,8 @@ var app = express();
 app.use(express.static("public"));
 
 // Parse application body as JSON
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
@@ -22,7 +21,7 @@ app.set("view engine", "handlebars");
 require("./routes/burgers_controller.js")(app);
 
 // Start our server so that it can begin listening to client requests.
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);

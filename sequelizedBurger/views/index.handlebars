@@ -15,9 +15,9 @@
         <div class="panel-body">
           <ul>
             {{#each burgers}}
-            {{#unless this.devoured}}
-            {{this.burger_name}}
-            <button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">Devour it!</button>
+            {{#unless dataValues.devoured}}
+            {{dataValues.burger_name}}
+            <button class="change-devoured" data-id="{{dataValues.id}}" data-newdevoured="{{dataValues.devoured}}">Devour it!</button>
             <hr>
             {{/unless}}
             {{/each}}
@@ -35,9 +35,9 @@
         <div class="panel-body">
           <ul>
             {{#each burgers}}
-            {{#if this.devoured}}
-            {{this.burger_name}}
-            <button class="delete-burger" data-id="{{this.id}}">Delete!</button>
+            {{#if dataValues.devoured}}
+            {{dataValues.burger_name}}
+            <button class="delete-burger" data-id="{{dataValues.id}}">Delete!</button>
             <hr>
             {{/if}}
             {{/each}}

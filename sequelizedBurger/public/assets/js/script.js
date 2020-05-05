@@ -1,9 +1,15 @@
 $(".change-devoured").on("click", function(event){
     event.preventDefault();
  var id = $(this).attr("data-id")
+ var newBurger = {
+   devoured: true,
+   name:"phil",
+   kyla:"hello"
+ }
 $.ajax({
     url:"/api/burgers/" + id  ,
-    method: "PUT"
+    method: "PUT",
+    data: newBurger
 }).then(function(data){
     location.reload()
 }).catch(function(error){
