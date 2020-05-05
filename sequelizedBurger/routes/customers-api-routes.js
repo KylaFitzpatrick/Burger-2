@@ -22,7 +22,6 @@ app.get("/", function(req, res) {
     db.Customer.create({
       customer_name: req.body.customer_name,
       BurgerId: req.body.BurgerId
-      // id: req.body.devoured
     }).then(function(dbCustomer){
       res.json(dbCustomer)
     })

@@ -5,7 +5,7 @@ $(".change-devoured").on("click", function(event){
    devoured: true
  }
 $.ajax({
-    url:"/api/burgers/" + id  ,
+    url:"/api/burgers/" + id,
     method: "PUT",
     data: newBurger
 }).then(function(data){
@@ -14,13 +14,13 @@ $.ajax({
 console.log(error)
 });
 
-var customerId = "#customer"+id
+var customerId = "#customer"+id;
 var newCustomer = {
   customer_name: $(customerId).val().trim(),
   BurgerId: id
 }
-$.ajax("/api/customers/", {
-   method: "POST",
+$.ajax("/api/customers", {
+   type: "POST",
    data: newCustomer
 }).then(function(data){
   console.log(customerId)
