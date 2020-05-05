@@ -5,7 +5,9 @@ module.exports = function(app) {
 
 app.get("/", function(req, res) {
 
-    db.Burger.findAll({}).then(function(dbBurger) {
+    db.Burger.findAll({
+      include: [db.Customer]
+    }).then(function(dbBurger) {
 
  
       res.render("index", {burgers: dbBurger})

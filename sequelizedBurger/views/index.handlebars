@@ -17,6 +17,7 @@
             {{#each burgers}}
             {{#unless dataValues.devoured}}
             {{dataValues.burger_name}}
+            <input type="text" id="customer{{data-values.id}}"></input>
             <button class="change-devoured" data-id="{{dataValues.id}}" data-newdevoured="{{dataValues.devoured}}">Devour it!</button>
             <hr>
             {{/unless}}
@@ -37,6 +38,9 @@
             {{#each burgers}}
             {{#if dataValues.devoured}}
             {{dataValues.burger_name}}
+            {{#each customers}}
+            {{customer_name}}
+            {{/each}}
             <button class="delete-burger" data-id="{{dataValues.id}}">Delete!</button>
             <hr>
             {{/if}}
