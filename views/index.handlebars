@@ -40,9 +40,11 @@
             {{#each burgers}}
             {{#if dataValues.devoured}}
             {{dataValues.burger_name}}
+            <br>
             (Devoured by {{#each Customers}}
             {{dataValues.customer_name}}
             {{/each}})
+            <br>
             <button class="delete-burger" data-id="{{dataValues.id}}">Delete!</button>
             <hr>
             {{/if}}
