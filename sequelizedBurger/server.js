@@ -9,7 +9,7 @@ var app = express();
 app.use(express.static("public"));
 
 // Parse application body as JSON
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Set Handlebars.
 var exphbs = require("express-handlebars");
@@ -22,7 +22,7 @@ require("./routes/burgers-api-routes.js")(app);
 require("./routes/customers-api-routes.js")(app);
 
 // Start our server so that it can begin listening to client requests.
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync().then(function() {
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);

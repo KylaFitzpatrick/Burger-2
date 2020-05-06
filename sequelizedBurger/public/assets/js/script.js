@@ -1,4 +1,5 @@
-$(".change-devoured").on("click", function(event){
+
+  $(".change-devoured").on("click", function(event){
     event.preventDefault();
  var id = $(this).attr("data-id")
  var newBurger = {
@@ -8,25 +9,23 @@ $.ajax({
     url:"/api/burgers/" + id,
     method: "PUT",
     data: newBurger
-}).then(function(data){
+}).then(function(){
     location.reload()
-}).catch(function(error){
-console.log(error)
-});
 
-var customerId = "#customer"+id;
+})
+
+// var customerId = "#customer"+id;
 var newCustomer = {
-  customer_name: $(customerId).val().trim(),
+  customer_name: $("#customer").val().trim(),
   BurgerId: id
 }
-$.ajax("/api/customers", {
+$.ajax("/api/customers/", {
    type: "POST",
    data: newCustomer
-}).then(function(data){
-  console.log(customerId)
+}).then(function() {
+  console.log("customer:", newCustomer)
    location.reload()
-}).catch(function(error){
-console.log(error)
+
 });
 
 })

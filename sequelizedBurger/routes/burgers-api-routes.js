@@ -5,13 +5,13 @@ module.exports = function(app) {
 
 app.get("/", function(req, res) {
 
-    db.Burger.findAll({
+    db.Burger.findAll({ 
       include: [db.Customer]
     }).then(function(dbBurger) {
 
  
       res.render("index", {burgers: dbBurger})
-            
+            console.log(db.Customer)
             console.log(dbBurger)
         })
           

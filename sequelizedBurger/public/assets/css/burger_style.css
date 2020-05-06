@@ -23,6 +23,9 @@ h2{
     color: white;
     text-align: center;
 }
+#customer{
+    color:rgb(104, 20, 97); 
+}
 #created{
 background-color: rgb(43, 173, 43);
 }

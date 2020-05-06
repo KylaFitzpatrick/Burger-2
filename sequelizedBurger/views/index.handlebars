@@ -17,12 +17,10 @@
             {{#each burgers}}
             {{#unless dataValues.devoured}}
             {{dataValues.burger_name}}
-            <form>
             <div class="form-group">
-            <input type="text" id="customer{{dataValues.id}}"></input>
+            <input type="text" id="customer" name="name" placeholder="Enter customer name">
             </div>
             <button class="change-devoured" data-id="{{dataValues.id}}" data-newdevoured="{{dataValues.devoured}}">Devour it!</button>
-            </form>
             <hr>
             {{/unless}}
             {{/each}}
@@ -42,9 +40,9 @@
             {{#each burgers}}
             {{#if dataValues.devoured}}
             {{dataValues.burger_name}}
-            {{#each customers}}
-            {{customer_name}}
-            {{/each}}
+            (Devoured by {{#each Customers}}
+            {{dataValues.customer_name}}
+            {{/each}})
             <button class="delete-burger" data-id="{{dataValues.id}}">Delete!</button>
             <hr>
             {{/if}}
